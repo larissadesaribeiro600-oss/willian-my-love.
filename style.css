@@ -1,1 +1,113 @@
+function scrollToSection(){
+document.querySelector(".contador")
+.scrollIntoView({
+behavior:"smooth"
+});
+}
 
+const inicio =
+new Date("2026-04-06T00:00:00");
+
+function atualizarTempo(){
+
+const agora = new Date();
+
+const diff = agora - inicio;
+
+const dias =
+Math.floor(diff/(1000*60*60*24));
+
+const horas =
+Math.floor(diff/(1000*60*60))%24;
+
+const minutos =
+Math.floor(diff/(1000*60))%60;
+
+document.getElementById("tempo")
+.innerHTML =
+`${dias} dias ${horas}h ${minutos}m ❤️`;
+
+}
+
+setInterval(atualizarTempo,1000);
+
+const carta = `
+Hoje eu quis te dar algo diferente:
+um cantinho só nosso na internet.
+
+Eu poderia escrever mil vezes que te amo,
+e ainda assim não seria suficiente.
+
+Você é meu porto seguro,
+minha alegria e meu futuro.
+
+Você é o capítulo mais intenso da minha história,
+aquele que não se lê com os olhos,
+mas se sente com a alma.
+
+Cada palavra que pronuncio
+carrega o peso da saudade.
+
+Cada silêncio guarda o eco da sua voz.
+
+Amar você é mergulhar em um oceano sem fim.
+
+Não há fronteiras.
+Não há distância.
+Não há tempo.
+
+Você é meu poema vivo,
+minha razão e meu delírio.
+
+E eu escolho te amar
+em cada instante
+como se fosse o último.
+
+❤️
+`;
+
+let i = 0;
+
+function escrever(){
+
+if(i < carta.length){
+
+document.getElementById("texto")
+.innerHTML += carta.charAt(i);
+
+i++;
+
+setTimeout(escrever,35);
+
+}
+
+}
+
+escrever();
+
+const opcoes = [
+
+"Assistir filme juntos 🎬",
+"Call até dormir 🌙",
+"Jogar juntos 🎮",
+"Ouvir música 🎵",
+"Falar sobre o futuro ❤️",
+"Escolher nossa próxima foto 📸"
+
+];
+
+function girar(){
+
+const sorteio =
+opcoes[
+Math.floor(
+Math.random()*
+opcoes.length
+)
+];
+
+document
+.getElementById("resultado")
+.innerHTML = sorteio;
+
+}
